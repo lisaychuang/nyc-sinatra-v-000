@@ -1,5 +1,8 @@
 class LandmarksController < ApplicationController
-
+    get '/' do
+        redirect to "/landmarks"
+    end
+    
     get '/landmarks' do
         @landmarks = Landmark.all
 
@@ -12,8 +15,7 @@ class LandmarksController < ApplicationController
     end
 
     post '/landmarks' do
-        @landmark = Landmark.create(params[:landmark])
-        @landmark.save
+        Landmark.create(params[:landmark])
 
         redirect to "/landmarks/#{@landmark.id}"
     end
