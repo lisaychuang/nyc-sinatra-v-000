@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Figure Edit page</title>
+    </head>
+
+    <body>
+      <h1>Current figure information</h1>
+
+      <h3>Name: <%= @figure.name %></h3>
+
+      <form action="/figures/<%=@figure.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        
+        <h1>Update figure information</h1>
+
+        <p><label for="figure[name]">New Name:</label></p>
+        <p><input type="text" name="figure_name" id="figure[name]"></p>
+
+        <%#TITLES%>
+            <h3>Title(s):</h3>
+            <p><% @titles.each do |title|%>
+                <input type="checkbox" name="figure[title_ids][]" id="title_<%=title.id%>" 
+                    value="<%=title.id%>"><%=title.name%></input>
+            <%end%></p>
+
+        <%#LANDMARK%>
+        <h3>and/or, create a new Landmark:</h3>
+        <p><label for="landmark[name]">Landmark Name:</label></p>
+        <p><input type="text" name="new_landmark" id="landmark[name]"></p>
+
+        <input type="submit" value="Edit Figure">
+      </form>
+
+    </body>
+</html>
