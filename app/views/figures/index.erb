@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>All Figures</title>
+    </head>
+
+    <body>
+        <h1>List of Figures:</h1>
+
+        <ol>    
+            <% @figures.each do |figure|%>
+                <li>
+                    <p> Name: <%= figure.name %></p>
+                </li>
+            <% end %>
+
+        </ol>
+
+    </body>
+</html>
+
