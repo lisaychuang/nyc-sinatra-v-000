@@ -1,3 +1,4 @@
+require_all 'app'
 require 'bundler/setup'
 Bundler.require
 
